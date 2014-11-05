@@ -1,0 +1,22 @@
+<load href="__PUBLIC__/static/admin/js/jquery/jquery.js" />
+<load href="__PUBLIC__/static/admin/js/jquery/plugins/jquery.tools.min.js" />
+<load href="__PUBLIC__/static/admin/js/jquery/plugins/formvalidator.js" />
+<load href="__PUBLIC__/static/admin/js/pinphp.js" />
+<load href="__PUBLIC__/static/admin/js/admin.js" />
+<script>
+//初始化弹窗
+(function (d) {
+    d['okValue'] = lang.dialog_ok;
+    d['cancelValue'] = lang.dialog_cancel;
+    d['title'] = lang.dialog_title;
+})($.dialog.defaults);
+</script>
+
+<present name="list_table">
+<load href="__PUBLIC__/static/admin/js/jquery/plugins/listTable.js" />
+<script>
+$(function(){
+	$('.J_tablelist').listTable();
+});
+</script>
+</present>
