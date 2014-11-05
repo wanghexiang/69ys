@@ -1,8 +1,9 @@
 <?php
 namespace Admin\Model;
 use Think\Model;
-class ArticleModel extends RelationModel
+class ArticleModel extends Model
 {
+    protected $tableName="cn_article";
     //自动完成
     protected $_auto = array(
         array('add_time', 'time', 1, 'function'),

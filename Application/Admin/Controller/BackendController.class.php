@@ -51,7 +51,7 @@ class BackendController extends baseController
         $map = $this->_search();
         $mod = D($this->_name);
         !empty($mod) && $this->_list($mod, $map);
-        //echo $mod->getLastSql();
+
         $this->display();
     }
 
@@ -202,7 +202,7 @@ class BackendController extends baseController
     {
         //排序
         $mod_pk = $model->getPk();
-        if (I("sort", '','trim')) {
+        if (I("sort","",'trim')) {
             $sort = I("sort",'', 'trim');
         } else if (!empty($sort_by)) {
             $sort = $sort_by;
@@ -233,6 +233,7 @@ class BackendController extends baseController
             $page = $pager->show();
             $this->assign("page", $page);
         }
+
         $list = $select->select();
         $this->assign('list', $list);
         $this->assign('list_table', true);

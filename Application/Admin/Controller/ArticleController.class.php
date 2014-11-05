@@ -18,12 +18,12 @@ class ArticleController extends backendController
         }
         $this->assign('cate_list', $cate_list);
 
-        $p = I('p','intval',1);
+        $p = I('p','1',"intval");
         $this->assign('p',$p);
 
         //默认排序
-        $this->sort = 'ordid';
-        $this->order = 'ASC';
+        $this->sort = 'AddTime';
+        $this->order = 'desc';
     }
 
     protected function _search() {
