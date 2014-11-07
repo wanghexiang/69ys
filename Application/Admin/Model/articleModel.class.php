@@ -7,7 +7,7 @@ class ArticleModel extends RelationModel
     protected $tableName="cn_article";
     //自动完成
     protected $_auto = array(
-        array('add_time', 'time', 1, 'function'),
+        array('add_time', 'time', 1, 'function'), 
     );
     //自动验证
     protected $_validate = array(
