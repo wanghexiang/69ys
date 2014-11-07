@@ -155,6 +155,8 @@ class BackendController extends baseController
         $mod = D($this->_name);
         $pk = $mod->getPk();
         $ids = trim(I($pk), ',');
+       // $ids=I($pk);
+       // IS_AJAX && $this->ajaxReturn(1,$ids );
         if ($ids) {
             if (false !== $mod->delete($ids)) {
                 IS_AJAX && $this->ajaxReturn(1, L('operation_success'));
@@ -227,14 +229,15 @@ class BackendController extends baseController
             $pager = new \Think\Page($count, $pagesize);
         }
         $select = $model->field($field_list)->where($map)->order($sort . ' ' . $order);
-        $this->list_relation && $select->relation(true);
+       // $this->list_relation && $select->relation(true);
+        $select->relation(true);
         if ($pagesize) {
             $select->limit($pager->firstRow . ',' . $pager->listRows);
             $page = $pager->show();
             $this->assign("page", $page);
         }
-
         $list = $select->select();
+       // print_r($list);
         $this->assign('list', $list);
         $this->assign('list_table', true);
     }

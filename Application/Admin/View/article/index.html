@@ -57,12 +57,12 @@
                 <td align="center">{$p*20-20+$i}</td>
                 <td align="center">{$val.A_ID}</td>
                 <td align="left"><span data-tdtype="edit" data-field="Title" data-id="{$val.Title}" class="tdedit" style="color:{$val.colors};">{$val.Title}</span><notempty name="val['img']"><span class="attachment_icon J_attachment_icon" file-type="image" file-rel="{$img_dir}{$val.img}"><img src="__STATIC__/images/filetype/image_s.gif" /></span></notempty></td>
-                <td align="center"><b>{$cate_list[$val['cate_id']]}</b></td>
-				<td align="center"><b>{$val['author']}</b></td>
+                <td align="center"><b>{$val.cate.b_name}</b></td>
+				<td align="center"><b>{$val.wangzhanbj}</b></td>
                 <td align="center">{$val.AddTime}</td>
                 <td align="center"><span data-tdtype="edit" data-field="ordid" data-id="{$val.id}" class="tdedit">{$val.ordid}</span></td>
                 <td align="center"><img data-tdtype="toggle" data-id="{$val.id}" data-field="status" data-value="{$val.status}" src="__PUBLIC__/images/admin/toggle_<if condition="$val.status eq 0">disabled<else/>enabled</if>.gif" /></td>
-                <td align="center"><a href="{:u('article/edit', array('id'=>$val['id'], 'menuid'=>$menuid))}">{:L('edit')}</a> | <a href="javascript:void(0);" class="J_confirmurl" data-acttype="ajax" data-uri="{:u('article/delete', array('id'=>$val['id']))}" data-msg="{:sprintf(L('confirm_delete_one'),$val['title'])}">{:L('delete')}</a></td>
+                <td align="center"><a href="{:u('article/edit', array('A_ID'=>$val['A_ID'], 'menuid'=>$menuid))}">{:L('edit')}</a> | <a href="javascript:void(0);" class="J_confirmurl" data-acttype="ajax" data-uri="{:u('article/delete', array('A_ID'=>$val['A_ID']))}" data-msg="{:sprintf(L('confirm_delete_one'),$val['title'])}">{:L('delete')}</a></td>
             </tr>
             </volist>
         </tbody>
@@ -70,7 +70,7 @@
 
     <div class="btn_wrap_fixed">
         <label class="select_all"><input type="checkbox" name="checkall" class="J_checkall">{:L('select_all')}/{:L('cancel')}</label>
-        <input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="{:U('article/delete')}" data-name="id" data-msg="{:L('confirm_delete')}" value="{:L('delete')}" />
+        <input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="{:U('article/delete')}" data-name="A_ID" data-msg="{:L('confirm_delete')}" value="{:L('delete')}" />
         <div id="pages">{$page}</div>
     </div>
 

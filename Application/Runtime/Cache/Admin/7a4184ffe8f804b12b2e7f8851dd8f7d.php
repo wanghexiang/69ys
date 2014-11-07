@@ -82,19 +82,19 @@
                 <td align="center"><?php echo ($p*20-20+$i); ?></td>
                 <td align="center"><?php echo ($val["A_ID"]); ?></td>
                 <td align="left"><span data-tdtype="edit" data-field="Title" data-id="<?php echo ($val["Title"]); ?>" class="tdedit" style="color:<?php echo ($val["colors"]); ?>;"><?php echo ($val["Title"]); ?></span><?php if(!empty($val['img'])): ?><span class="attachment_icon J_attachment_icon" file-type="image" file-rel="<?php echo ($img_dir); echo ($val["img"]); ?>"><img src="__STATIC__/images/filetype/image_s.gif" /></span><?php endif; ?></td>
-                <td align="center"><b><?php echo ($cate_list[$val['cate_id']]); ?></b></td>
-				<td align="center"><b><?php echo ($val['author']); ?></b></td>
+                <td align="center"><b><?php echo ($val["cate"]["b_name"]); ?></b></td>
+				<td align="center"><b><?php echo ($val["wangzhanbj"]); ?></b></td>
                 <td align="center"><?php echo ($val["AddTime"]); ?></td>
                 <td align="center"><span data-tdtype="edit" data-field="ordid" data-id="<?php echo ($val["id"]); ?>" class="tdedit"><?php echo ($val["ordid"]); ?></span></td>
                 <td align="center"><img data-tdtype="toggle" data-id="<?php echo ($val["id"]); ?>" data-field="status" data-value="<?php echo ($val["status"]); ?>" src="/69ys/Public/images/admin/toggle_<?php if($val["status"] == 0): ?>disabled<?php else: ?>enabled<?php endif; ?>.gif" /></td>
-                <td align="center"><a href="<?php echo u('article/edit', array('id'=>$val['id'], 'menuid'=>$menuid));?>"><?php echo L('edit');?></a> | <a href="javascript:void(0);" class="J_confirmurl" data-acttype="ajax" data-uri="<?php echo u('article/delete', array('id'=>$val['id']));?>" data-msg="<?php echo sprintf(L('confirm_delete_one'),$val['title']);?>"><?php echo L('delete');?></a></td>
+                <td align="center"><a href="<?php echo u('article/edit', array('A_ID'=>$val['A_ID'], 'menuid'=>$menuid));?>"><?php echo L('edit');?></a> | <a href="javascript:void(0);" class="J_confirmurl" data-acttype="ajax" data-uri="<?php echo u('article/delete', array('A_ID'=>$val['A_ID']));?>" data-msg="<?php echo sprintf(L('confirm_delete_one'),$val['title']);?>"><?php echo L('delete');?></a></td>
             </tr><?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
 
     <div class="btn_wrap_fixed">
         <label class="select_all"><input type="checkbox" name="checkall" class="J_checkall"><?php echo L('select_all');?>/<?php echo L('cancel');?></label>
-        <input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="<?php echo U('article/delete');?>" data-name="id" data-msg="<?php echo L('confirm_delete');?>" value="<?php echo L('delete');?>" />
+        <input type="button" class="btn" data-tdtype="batch_action" data-acttype="ajax" data-uri="<?php echo U('article/delete');?>" data-name="A_ID" data-msg="<?php echo L('confirm_delete');?>" value="<?php echo L('delete');?>" />
         <div id="pages"><?php echo ($page); ?></div>
     </div>
 

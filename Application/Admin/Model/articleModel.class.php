@@ -1,7 +1,8 @@
 <?php
 namespace Admin\Model;
 use Think\Model;
-class ArticleModel extends Model
+use Think\Model\RelationModel;
+class ArticleModel extends RelationModel
 {
     protected $tableName="cn_article";
     //自动完成
@@ -15,9 +16,12 @@ class ArticleModel extends Model
     //关联关系
     protected $_link = array(
         'cate' => array(
-            'mapping_type' => BELONGS_TO,
-            'class_name' => 'article_cate',
-            'foreign_key' => 'cate_id',
+            'mapping_type' => self::BELONGS_TO,
+            'class_name' => 'base_info',
+            'foreign_key' => 'Class_ID',
+           // 'relation_key'=>"Class_ID",
+           // 'mapping_name'=>'auto_id',
+           // 'as_fields '=>"cate_name",
         )
     );
     public function addtime()

@@ -81,13 +81,13 @@ class ArticleController extends backendController
     }
 
     public function _before_edit(){
-        $id = I('id',"",'intval');
-        $article = $this->_mod->field('id,cate_id')->where(array('id'=>$id))->find();
-        $spid = $this->_cate_mod->where(array('id'=>$article['cate_id']))->getField('spid');
+        $id = I('A_ID',"",'intval');
+        $article = $this->_mod->field('A_ID,Class_ID')->where(array('A_ID'=>$id))->find();
+        $spid = $this->_cate_mod->where(array('auto_id'=>$article['Class_ID']))->getField('parent_id');
         if( $spid==0 ){
-            $spid = $article['cate_id'];
+            $spid = $article['Class_ID'];
         }else{
-            $spid .= $article['cate_id'];
+            $spid .= $article['Class_ID'];
         }
         $this->assign('selected_ids',$spid);
     }
